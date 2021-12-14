@@ -1,0 +1,23 @@
+component: http
+name: nextDemo
+inputs:
+  src:
+    dist: ./
+    hook: npm run build
+    exclude:
+      - .env
+  customDomains:
+     - domain: xdf.ink
+      #  certificateId: abcdefg
+       protocols:
+         - http
+        #  - https
+  faas:
+    runtime: Nodejs12.16
+    framework: nextjs
+    name: '${name}'
+  apigw:
+    protocols:
+      - http
+      - https
+app: site
